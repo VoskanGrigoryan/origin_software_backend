@@ -35,14 +35,14 @@ localhost:4000/user-actions -> Peticion tipo POST. Recibe como parametro un obje
   "user_id": 1
   }
 
-localhost:4000/add-action -> Peticion tipo POST. Recibe como parametro un objeto en formato json:
+localhost:4000/add-action -> Peticion tipo POST. Recibe como parametro (body) un objeto en formato json:
 <sub>El valor de symbol puede cambiar, la lista completa de opciones se puede ver en el backup de la base de datos</sub>
 
 - {
   "symbol": "GOGL"
   }
 
-localhost:4000/delete-action/:symbol -> Peticion tipo DELETE, recibe un parametro mediante el path.
+localhost:4000/delete-action/:symbol -> Peticion tipo DELETE, recibe un parametro mediante el path. (req.path)
 
 - {
   "symbol": "AAPL"
