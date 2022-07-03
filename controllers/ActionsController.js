@@ -1,5 +1,4 @@
 import UserActions from "../models/UserActions.js";
-import TotalActionsModel from "../models/TotalActions.js";
 
 export const getUserActions = async (req, res) => {
   try {
@@ -14,9 +13,9 @@ export const getUserActions = async (req, res) => {
 
 export const addAction = async (req, res) => {
   try {
-    const action = await TotalActionsModel.findOne({
-      where: { symbol: req.body.symbol },
-    });
+    // const action = await TotalActionsModel.findOne({
+    //   where: { symbol: req.body.symbol },
+    // });
 
     const { id, symbol, name, currency, exchange, country, type } = action;
 

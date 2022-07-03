@@ -4,7 +4,6 @@ import express from "express";
 // import { getAllActions } from "../controllers/TotalActionsController.js";
 
 import { getUser } from "../controllers/UserController.js";
-import { getTotalActions } from "../controllers/TotalActionsController.js";
 import {
   addAction,
   getUserActions,
@@ -15,8 +14,6 @@ const router = express.Router();
 
 //Actions
 
-//Gets all the actions | replaces the actions api
-router.get("/actions", getTotalActions);
 //Gets all the actions assigned to a specific user
 router.post("/user-actions", getUserActions);
 //Adds an action for the user
