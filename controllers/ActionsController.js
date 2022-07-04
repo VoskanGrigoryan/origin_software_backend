@@ -1,10 +1,12 @@
 import UserActions from "../models/UserActions.js";
+import UserModel from "../models/UserModel.js";
 
 export const getUserActions = async (req, res) => {
   try {
     const userActions = await UserActions.findAll({
       where: { user_id: req.body.user_id },
     });
+
     res.json(userActions);
   } catch (error) {
     res.json({ message: error.message });
@@ -13,30 +15,30 @@ export const getUserActions = async (req, res) => {
 
 export const addAction = async (req, res) => {
   try {
-    // const action = await TotalActionsModel.findOne({
-    //   where: { symbol: req.body.symbol },
-    // });
+    const userData = await UserModel.findOne({
+      where: { user_name: req.body.userName },
+    });
 
-    const { id, symbol, name, currency, exchange, country, type } = action;
+    const { symbol, name, currency, exchange, mic_code, country, type } =
+      req.body.action;
 
     //Object with added user_id, needed for mysql because userActions table need that column
     const obj = {
-      //user_id is being hardcoded, should fetch user_id with another findOne call
-      user_id: 1,
-      // action_id: id,
-      id: id,
-      symbol: symbol,
-      name: name,
-      currency: currency,
-      exchange: exchange,
-      country: country,
-      type: type,
+      user_id: userData.id,
+      symbol,
+      name,
+      currency,
+      exchange,
+      mic_code,
+      country,
+      type,
     };
 
     await UserActions.create(obj);
-    const message = res.json(obj);
 
-    return message;
+    res.json(obj);
+
+    return "action added!";
   } catch (error) {
     res.json({ message: error.message });
   }

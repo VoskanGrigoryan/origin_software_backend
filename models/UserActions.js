@@ -21,15 +21,15 @@ const UserModel = db.define(
     exchange: {
       type: DataTypes.STRING,
     },
+    mic_code: {
+      type: DataTypes.STRING,
+    },
     country: {
       type: DataTypes.STRING,
     },
     type: {
       type: DataTypes.STRING,
     },
-    // action_id: {
-    //   type: DataTypes.INTEGER,
-    // },
   },
   {
     timestamps: false,
