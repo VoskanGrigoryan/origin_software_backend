@@ -28,7 +28,6 @@ La aplicacion de backend fue desarrollada con:
 
 Rutas:
 
-localhost:4000/actions -> Peticion tipo GET. No recibe ningun parametro
 localhost:4000/user-actions -> Peticion tipo POST. Recibe como parametro un objeto en formato json:
 
 - {
@@ -36,10 +35,19 @@ localhost:4000/user-actions -> Peticion tipo POST. Recibe como parametro un obje
   }
 
 localhost:4000/add-action -> Peticion tipo POST. Recibe como parametro (body) un objeto en formato json:
-<sub>El valor de symbol puede cambiar, la lista completa de opciones se puede ver en el backup de la base de datos</sub>
+<sub>Ejemplo: </sub>
 
 - {
-  "symbol": "GOGL"
+  "userName": "voskan",
+  "action": {
+  "symbol": "AAC.UN",
+  "name": "Ares Acquisition Corporation",
+  "currency": "USD",
+  "exchange": "NYSE",
+  "mic_code": "XNYS",
+  "country": "United States",
+  "type": "Common Stock"
+  }
   }
 
 localhost:4000/delete-action/:symbol -> Peticion tipo DELETE, recibe un parametro mediante el path. (req.path)
